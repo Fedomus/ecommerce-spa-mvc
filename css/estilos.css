@@ -38,6 +38,12 @@ header{
       color: black;
 }
 
+.btn-carrito{
+      background-color: black;
+      color: white;
+      border-radius: 10px;
+}
+
 .card-body{
       display: flex !important;
       flex-direction: column;

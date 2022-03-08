@@ -39,4 +39,3 @@ window.onload = () => { router(); }
 //CADA VEZ QUE SE DETECTA UN CAMBIO EN EL HASH (EJEMPLO la URL CAMBIA DE #/pagina1 a #/pagina2) SE LLAMA A LA FUNCION ROUTER
 window.onhashchange = () => { router(); }
 
-loadLinkNav()
