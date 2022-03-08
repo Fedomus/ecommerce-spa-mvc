@@ -1,0 +1,82 @@
+header{
+      display: flex;
+      justify-content: center;
+      background-color: black;
+      color: white;
+}
+
+.navbar{
+      display: flex;
+      justify-content: space-between;
+      background-color: #000000 !important;
+      color: white !important;
+}
+
+.linksNav{
+      display: flex;
+      flex-direction: row;
+}
+
+.botonesBusqueda{
+      display: flex;
+      justify-content: flex-start;
+}
+
+.btn{
+      color: white;
+}
+
+.btnNav:hover{
+      color: red;
+}
+
+.btn-filtro:hover{
+      color: red;
+}
+
+.btn-filtro{
+      color: black;
+}
+
+.card-body{
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center !important;
+      height: 150px;
+      align-items: center;
+}
+
+.divProductos{
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: auto;
+}
+
+.btnCompra{
+      width: 100px;
+      align-self: center;
+}
+
+.card{
+      width: 14rem; 
+      height: 23rem;
+      margin:auto;
+}
+
+.card-img-top{
+      height:200px; 
+      width:180px;
+      align-self: center;
+}
+
+
+.divProductos{
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.header{
+      text-align: center;
+}
