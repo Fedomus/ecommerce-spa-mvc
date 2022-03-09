@@ -178,19 +178,19 @@ class ProductoController {
     }
 
     buscar(header, app) {
-        this.productoView.listarProductos(app, this.productoModel.productos)
+        const eventoAgregar = (event) => {
+            let hijos = event.target.parentNode.children;
+            let id = parseInt(hijos[3].id);
+            let seleccion = this.productoModel.buscarProducto(id);
+            actualizarCarrito(seleccion);
+            this.productoView.mostrarCarrito(carrito, seleccion);
+        }
+        this.productoView.listarProductos(app, this.productoModel.productos, eventoAgregar)
         this.productoView.buscadorProducto(header, () => {
             let nombre = document.getElementById('buscador').value.toUpperCase()
-            this.productoView.listarProductos(app, this.productoModel.buscadorProductos(nombre), (event) => {
-                let hijos = event.target.parentNode.children;
-                let id = parseInt(hijos[3].id);
-                let seleccion = this.productoModel.buscarProducto(id);
-                actualizarCarrito(seleccion);
-                this.productoView.mostrarCarrito(carrito, seleccion);
-            })
+            this.productoView.listarProductos(app, this.productoModel.buscadorProductos(nombre), eventoAgregar)
         })
     }
-
     pagar(header, app) {
         $('#staticBackdrop').modal('hide')
         this.productoView.modoPago(header, app, (event) => {

@@ -39,7 +39,6 @@ function carritoHTML(lista) {
                 productosCarrito.append(prod);
         }
         removeProducto();
-        addProducto();
 }
 
 //---------------Funcion calcular total carrito-------------------------------
