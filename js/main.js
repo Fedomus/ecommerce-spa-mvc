@@ -31,7 +31,7 @@ const router = () => {
       app.pagar('header', 'app');
       break;
     case 'login':
-      log.interfazLogin('app');
+      log.interfazLogin('app', 'log');
       log.tituloLogin('header');
       break;
     default:

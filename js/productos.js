@@ -116,31 +116,32 @@ class ProductoView {
                                                     <p>Total a pagar: $${monto}</p>
                                                     <hr>`
         document.getElementById(padre).innerHTML = `
-        
-        <span>Elegí el modo de pago</span>
-        <br>
-        <br>
-        <form id="formModoPago">
-                  <div class="form-check">
+        <div class="modoPago">
+            <span>Elegí el modo de pago</span>
+            <br>
+            <br>
+            <form id="formModoPago">
+                <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="unPago" checked>
                         <label id="labelUnPago" class="form-check-label" for="unPago">Efectivo
                         </label>
-                  </div>
-                  <br>
-                  <div class="form-check">
+                </div>
+                <br>
+                <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="dosPagos">
                         <label id="labelDosPagos" class="form-check-label" for="dosPagos">Tarjeta de Débito
                         </label>
-                  </div>
-                  <br>
-                  <div class="form-check">
+                </div>
+                <br>
+                <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="tresPagos">
                         <label id="labelTresPagos" class="form-check-label" for="tresPagos"> Tarjeta de Crédito
                         </label>
-                  </div>
+                </div>
             </form>
             <br>
-            <button id="btnPago" class="btn btn-success">Pagar</button> `;
+            <button id="btnPago" class="btn btn-success">Pagar</button> 
+        </div>`;
 
         document.querySelector(".btnPagar").onclick = callback;
     }
