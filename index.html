@@ -16,15 +16,16 @@
         </div>
       </header>
       <div class="navbar">
-        <div>
-          <span>Buscar producto --></span>
-          <a href="#/pagina0" type="button" class="btn btnNav">
-            Por categoría
-          </a>
-          <a href="#/pagina1" type="button" class="btn btnNav">
-            Por nombre
-          </a>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle btnNav" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Buscar Productos
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#/pagina0">Por categoría</a></li>
+            <li><a class="dropdown-item" href="#/pagina1">Por nombre</a></li>
+          </ul>
         </div>
+
         
         <div class="linksNav">
           <div id="log">

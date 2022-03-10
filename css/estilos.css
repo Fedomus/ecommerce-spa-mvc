@@ -5,6 +5,10 @@ header{
       color: white;
 }
 
+.titulo{
+      color: white;
+}
+
 .navbar{
       display: flex;
       justify-content: space-between;
@@ -85,4 +89,13 @@ header{
 
 .header{
       text-align: center;
+}
+
+.interfaz{
+      display: flex;
+      justify-content: center;
+}
+
+.form-login{
+      width: 500px; 
 }
