@@ -1,10 +1,11 @@
 const app = new ProductoController(new ProductoModel(), new ProductoView());
+const log = new UsuarioController(new UsuarioModel(), new UsuarioView());
 // LISTA DE RUTAS (ASOCIAR A CADA ACCION)
 const routes = [
   { path: '/pagina0', action: 'show' },
   { path: '/pagina1', action: 'buscar' },
   { path: '/pagina2', action: 'pay' },
- 
+  { path: '/pagina3', action: 'login'},
 ];
 
 //OBTENER LA RUTA ACTUAL (USAMOS EL OBJETO LOCATIOS Y SU PROPIEDAD HASH). SI "" || '/'  ENTONCES parseLocation = '/'
@@ -20,13 +21,17 @@ const router = () => {
   switch (action) {
     case 'show':
       app.mostrarProductos('header', 'app');
+      log.login('log');
       break;
     case 'buscar':
       app.buscar('header', 'app');
+      log.login('log');
       break;
     case 'pay':
       app.pagar('header', 'app');
       break;
+    case 'login':
+      
     default:
       ErrorComponent('app')
       break;

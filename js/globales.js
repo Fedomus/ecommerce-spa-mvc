@@ -1,7 +1,7 @@
 //VARIABLES DE ACCESO GLOBAL
 const productos = [];
 const carrito=[];
-const clientes = [];
+const usuarios = [];
 //Interfaz carrito
 
 const cantidadCarrito= document.getElementById('cantidad');

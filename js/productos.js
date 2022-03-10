@@ -16,7 +16,6 @@ class Producto {
     }
 }
 
-
 fetch("productos/productos.json")
 .then( response => response.json())
 .then( (data) => {
@@ -70,7 +69,8 @@ class ProductoView {
         document.querySelectorAll(".btnComprar").forEach(b => b.onclick = callback);
     }
     generarBotones(padre, lista, callback){
-        document.getElementById(padre).innerHTML=  `<button class='btn btn-filtro'>Todos los productos</button><button class='btn btn-filtro'>${lista.join("</button><button class='btn btn-filtro'>")}</button><hr>`
+        document.getElementById(padre).innerHTML=  `<br>
+        <button class='btn btn-filtro'>Todos los productos</button><button class='btn btn-filtro'>${lista.join("</button><button class='btn btn-filtro'>")}</button><hr>`
         document.querySelectorAll('.btn-filtro').forEach(b => b.onclick = callback);
     }
 
@@ -103,7 +103,8 @@ class ProductoView {
     }
 
     buscadorProducto(padre, callback){
-        document.getElementById(padre).innerHTML=  `<input id="buscador" placeholder='Nombre del producto...'></input>
+        document.getElementById(padre).innerHTML=  `<br>
+                                                    <input id="buscador" placeholder='Nombre del producto...'></input>
                                                     <button id="buscar" class='btn-carrito' type='submit'>Buscar</button>
                                                     <hr>`
         document.getElementById('buscador').onchange = callback;
@@ -111,7 +112,8 @@ class ProductoView {
 
     modoPago(header, padre, callback) {
         let monto = totalCarrito();
-        document.getElementById(header).innerHTML = `<p>Total a pagar: $${monto}</p>
+        document.getElementById(header).innerHTML = `<br>
+                                                    <p>Total a pagar: $${monto}</p>
                                                     <hr>`
         document.getElementById(padre).innerHTML = `
         
