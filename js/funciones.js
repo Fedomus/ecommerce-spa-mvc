@@ -22,6 +22,7 @@ function removeProducto() {
         }        
 }
 
+
 function carritoHTML(lista) {
         cantidadCarrito.innerHTML = lista.length;
         productosCarrito.innerHTML = "";

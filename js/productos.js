@@ -44,9 +44,7 @@ class ProductoModel {
     }
 }
 
-
 class ProductoView {
-
     listarProductos(padre, data, callback) {
         let divProductos = document.createElement('div');
         for (const producto of data) {
@@ -68,6 +66,7 @@ class ProductoView {
         html.append(divProductos);
         document.querySelectorAll(".btnComprar").forEach(b => b.onclick = callback);
     }
+
     generarBotones(padre, lista, callback){
         document.getElementById(padre).innerHTML=  `<br>
         <button class='btn btn-filtro'>Todos los productos</button><button class='btn btn-filtro'>${lista.join("</button><button class='btn btn-filtro'>")}</button><hr>`
@@ -78,19 +77,20 @@ class ProductoView {
         cantidadCarrito.innerHTML = lista.length;
         productosCarrito.innerHTML = "";
         for (const producto of lista) {
-                let prod = document.createElement('tr');
-                prod.innerHTML = `
-                        <th scope="row">
-                            <button id="${producto.id}" class="btnRemove btn-carrito">X</button>   
-                        </th>
-                        <td>${producto.nombre} </td>
-                        <td>$${producto.precio}</td>
-                        <td><button id="${producto.id}" class="btnSub btn-carrito">-</button> ${producto.cantidad} <button id="${producto.id}" class="btnAdd btn-carrito">+</button></td>
-                        <td>$${producto.subTotal()}</td>
-                `;
-                productosCarrito.append(prod);
+            let prod = document.createElement('tr');
+            prod.innerHTML = `
+                    <th scope="row">
+                        <button id="${producto.id}" class="btnRemove btn-carrito">X</button>   
+                    </th>
+                    <td>${producto.nombre} </td>
+                    <td>$${producto.precio}</td>
+                    <td><button id="${producto.id}" class="btnSub btn-carrito">-</button> ${producto.cantidad} <button id="${producto.id}" class="btnAdd btn-carrito">+</button></td>
+                    <td>$${producto.subTotal()}</td>
+            `;
+            productosCarrito.append(prod);
         }
         removeProducto();
+        addProducto();
         totalCarrito();
         Toastify({
             text: `Se ha agregado el producto: ${seleccion.nombre}`,
@@ -211,11 +211,22 @@ function actualizarCarrito(seleccion){
     } else {
         carrito.push(seleccion);
     }
-    localStorage.setItem('Carrito', JSON.stringify(carrito));
-    
+    localStorage.setItem('Carrito', JSON.stringify(carrito));  
 }
 
+function addProducto(){
+    document.querySelectorAll('.btnAdd').forEach( b => b.onclick = () => {
+        let producto = carrito.find(p => p.id == b.id);
+        actualizarCarrito(producto)
+        carritoHTML(carrito)
+    });
+}
 
+function carritoVacio(padre) {
+    if (carrito.length == 0) {
+            padre.innerHTML = `<span>Aún no has agregado productos al carrito</span>`;
+    }
+}
 
 // ----------------FUNCION PARA CALCULAR EL TOTAL DEL CARRITO--------------------
 
@@ -228,21 +239,21 @@ function totalCarrito() {
 
 // ----------------FUNCION PARA AGREGAR CANTIDAD DE UN PRODUCTO AL CARRITO--------------------
 
-function addProducto() {
-    let botones = document.getElementsByClassName('btnAdd');
-    for (const boton of botones) {
-        let producto = carrito.find(p => p.id == this.id);
-        console.log(this.parentNode.children[1]);
-        //Uso el metodo agregarCantidad para agregar
-        //Modifico el dom subiendo al padre del boton(con parentNode) y obtengo sus hijos(children) para modificarlos
-        this.parentNode.children[1].innerHTML = "Cantidad: " + producto.cantidad;
-        this.parentNode.children[2].innerHTML = "Subtotal: " + producto.subTotal();
-        //Actualizo la interfaz del total
-        totalCarrito();
-        localStorage.setItem('Carrito', JSON.stringify(carrito));
-    }
-    //Busco a que producto quiero agregar cantidad
-}
+// function addProducto() {
+//     let botones = document.getElementsByClassName('btnAdd');
+//     for (const boton of botones) {
+//         let producto = carrito.find(p => p.id == this.id);
+//         console.log(this.parentNode.children[1]);
+//         //Uso el metodo agregarCantidad para agregar
+//         //Modifico el dom subiendo al padre del boton(con parentNode) y obtengo sus hijos(children) para modificarlos
+//         this.parentNode.children[1].innerHTML = "Cantidad: " + producto.cantidad;
+//         this.parentNode.children[2].innerHTML = "Subtotal: " + producto.subTotal();
+//         //Actualizo la interfaz del total
+//         totalCarrito();
+//         localStorage.setItem('Carrito', JSON.stringify(carrito));
+//     }
+//     //Busco a que producto quiero agregar cantidad
+// }
 
 // ----------------FUNCION PARA RESTAR CANTIDAD DE UN PRODUCTO AL CARRITO--------------------
 
