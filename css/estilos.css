@@ -53,8 +53,54 @@ header{
       flex-direction: column;
       justify-content: center !important;
       height: 150px;
+      text-align: left !important;
       align-items: center;
 }
+
+.card-text{
+      padding-left: 20px;
+      margin-bottom: 0px !important;
+      padding-top: 20px;
+}
+
+.card-title{
+      margin-bottom: 0px;
+      padding-left: 20px;
+      padding-top: 10px;
+}
+
+/* Seccion detalle */
+
+.verDetalle{
+      display: flex;
+      justify-content: space-between;
+}
+
+.verDetalle :hover{
+      cursor: pointer;
+}
+
+.imagen{
+      width: 60%;
+      display: flex;
+      justify-content: center;
+}
+
+.imagenGrande{
+      width: 300px;
+      height: 400px;
+}
+
+.seccionComprar{
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      border: 1px solid black;
+      justify-self: right;
+      padding: 50px;
+}
+
+/* -------- */
 
 .divProductos{
       width: 80%;
@@ -70,9 +116,9 @@ header{
 }
 
 .card{
-      width: 14rem; 
-      height: 23rem;
-      margin:auto;
+      width: 14rem;
+      height: 22rem;
+      padding-top: 20px;
 }
 
 .card-img-top{
@@ -99,3 +145,5 @@ header{
 .form-login{
       width: 500px; 
 }
+
+
